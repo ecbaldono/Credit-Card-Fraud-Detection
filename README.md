@@ -66,9 +66,11 @@ The project utilizes the **European Credit Card Fraud** dataset (Sept 2013).
 git clone [https://github.com/YOUR_USERNAME/Credit-Card-Fraud-Detection.git](https://github.com/ecbaldono/Credit-Card-Fraud-Detection.git)
 cd Credit-Card-Fraud-Detection
 
+
 ### 2. Install Dependencies
 ```bash
 pip install -r requirements.txt
+
 
 ### 3. Run the Analysis
 **Note on Data:** You do **not** need to manually download the dataset. The notebook includes an auto-fetch mechanism that will automatically download the data from OpenML (ID: 43627) on the first run.
