@@ -1,0 +1,30 @@
+# --- Python System Files ---
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Jupyter Notebook Checkpoints ---
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# --- Virtual Environments ---
+.env
+.venv
+env/
+venv/
+ENV/
+.aim/
+
+# --- Data Files (CRITICAL) ---
+*.csv
+*.zip
+*.tar.gz
+data/
+
+# --- IDE Settings ---
+.vscode/
+.idea/
+
+# --- Operating System Junk ---
+.DS_Store
+Thumbs.db
