@@ -8,11 +8,11 @@
 > **A Cost-Sensitive AI Approach to Minimizing Financial Risk.**
 
 ## 📖 Executive Summary
-In financial fraud detection, standard accuracy is a misleading metric. A model can be 99.8% accurate and still fail to catch a single fraud case. 
+In financial fraud detection, standard accuracy is an insufficient metric due to the high cost of false negatives. A model can achieve 99% accuracy by simply predicting the majority class, yet fail to mitigate any financial loss.
 
-This Capstone Project moves beyond basic classification to implement **Cost-Sensitive Learning**. By analyzing the asymmetric costs of fraud (average cost of **$122** per missed theft) vs. prevention (approx. **$2** per alert), we engineered a model that optimizes for **ROI** rather than just mathematical precision.
+This Capstone Project establishes a **Cost-Sensitive Learning** framework. By analyzing the asymmetric costs of fraud (avg. **$122** per incident) versus prevention (approx. **$2** per alert), we engineered a model optimized for **Return on Investment (ROI)** rather than raw classification metrics.
 
-**Key Outcome:** The final model achieves a **Net Savings of ~$9,717** per test batch with a projected **ROI of >3,000%**.
+**Key Outcome:** The final model achieves a **Net Savings of ~$9,717** per test batch, yielding a projected **ROI of >3,000%**.
 
 ---
 
@@ -26,15 +26,15 @@ Credit card fraud is a "Needle in a Haystack" problem (Imbalanced Classification
 
 ---
 
-## 📊 The "Algorithm Battle"
-We conducted a rigorous cross-validation tournament to benchmark four distinct algorithms. The goal was to balance **Recall** (Safety) with **Inference Speed** (Real-time capability).
+## 📊 Model Selection & Comparative Analysis
+We established a rigorous evaluation framework to identify the optimal algorithm. The analysis assessed candidate models across three dimensions: **Predictive Performance (AUPRC)**, **Stability**, and **Training Latency**.
 
-| Model | AUPRC Score| Training Time | Verdict |
-| :--- | :---:| :---: | :--- |
-| **Logistic Regression** | 0.69 | **2.67s** | Baseline |
-| **Neural Network (MLP)** | 0.76 | 49.48s | Too Slow |
-| **Random Forest** | 0.76 | 8.92s | Strong Contender |
-| **XGBoost** | **0.84** | 0.92s | **BEST MODEL** |
+| Model | Architecture | AUPRC | Latency | Verdict |
+| :--- | :--- | :---: | :---: | :--- |
+| **Logistic Regression** | Linear Baseline | 0.69 | 2.77s | Baseline Benchmark |
+| **Neural Network (MLP)** | Feedforward ANN (+SMOTE) | 0.75 | 35.48s | High Latency |
+| **Random Forest** | Bagging Ensemble | 0.76 | 8.97s | Competitive |
+| **XGBoost** | **Gradient Boosting** | **0.84** | **0.91s** | **Selected** |
 
 ---
 
@@ -44,18 +44,18 @@ We translated the model's performance into concrete financial metrics using a cu
 ![Business Impact](images/business_impact_custom.png)
 
 * **Red Bar:** Financial loss from fraud.
-* **Gray Bar:** Operational cost of running the AI (admin/friction).
+* **Gray Bar:** Operational cost of the AI system.
 * **Green Bar:** The **Value Saved** by the model.
 
 **Final ROI:** For every $1 spent on monitoring, the system saves approximately **$31.96**.
 
 ---
 
-## 📂 Dataset Info
+## 📂 Dataset Details
 The project utilizes the **European Credit Card Fraud** dataset (Sept 2013).
 * **Source:** **OpenML Repository (ID: 43627)**.
-* **Smart Loading:** The notebook includes an auto-fetch mechanism. If the data file (`creditcard.csv`) is not found locally, it automatically connects to the OpenML API to fetch the live dataset.
-* **Privacy:** Features `V1`, `V2`...`V28` are the result of a PCA transformation to protect user confidentiality. Only `Amount` and `Class` are original.
+* **Smart Loading:** The notebook includes an auto-fetch mechanism. If `creditcard_raw.csv` is not found locally, it automatically connects to the OpenML API to fetch the live dataset.
+* **Privacy:** Features `V1`...`V28` are PCA-transformed to protect user confidentiality. Only `Amount` is an original feature.
 
 ---
 
@@ -63,19 +63,20 @@ The project utilizes the **European Credit Card Fraud** dataset (Sept 2013).
 
 ### 1. Clone the Repository
 ```bash
-git clone [https://github.com/YOUR_USERNAME/Credit-Card-Fraud-Detection.git](https://github.com/ecbaldono/Credit-Card-Fraud-Detection.git)
+git clone [https://github.com/ecbaldono/Credit-Card-Fraud-Detection.git](https://github.com/ecbaldono/Credit-Card-Fraud-Detection.git)
 cd Credit-Card-Fraud-Detection
-
+```
 
 ### 2. Install Dependencies
 ```bash
 pip install -r requirements.txt
-
+```
 
 ### 3. Run the Analysis
-**Note on Data:** You do **not** need to manually download the dataset. The notebook includes an auto-fetch mechanism that will automatically download the data from OpenML (ID: 43627) on the first run.
+**Note on Data:** You do **not** need to manually download the dataset. The code will fetch it automatically on the first run.
 ```bash
 jupyter notebook notebooks/ernesto_baldono_jr_capstone.ipynb
+```
 *(Alternatively, you can open the notebook in VS Code and click "Run All".)*
 
 ---
@@ -93,6 +94,6 @@ jupyter notebook notebooks/ernesto_baldono_jr_capstone.ipynb
 * [Email](mailto:ebaldonojr@gmail.com)
 
 ---
-*This project was completed as part of the AIM Machine Learning Capstone.*
+*Developed as the final capstone project for the Postgraduate Diploma in AI & Machine Learning at the Asian Institute of Management.*
 
 
